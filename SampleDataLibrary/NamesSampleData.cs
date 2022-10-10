@@ -8,18 +8,18 @@ namespace SampleDataLibrary
 {
     public class NamesSampleData
     {
-        private Random rand = new();
+        private Random _rand = new();
         public string SampleFirstName()
         {
             List<string> firstNames = File.ReadAllLines("firstnames.txt").ToList();
-            int sample = rand.Next(0, firstNames.Count);
+            int sample = _rand.Next(0, firstNames.Count);
             return firstNames[sample];
 
         }
         public string SampleLastName()
         {
             List<string> lastNames = File.ReadAllLines("lastnames.txt").ToList();
-            int sample = rand.Next(0, lastNames.Count);
+            int sample = _rand.Next(0, lastNames.Count);
             return lastNames[sample];
         }
     }

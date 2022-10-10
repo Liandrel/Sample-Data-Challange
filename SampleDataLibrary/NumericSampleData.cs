@@ -8,10 +8,15 @@ namespace SampleDataLibrary
 {
     public class NumericSampleData
     {
-        private Random rand = new();
-        public bool sampleBool()
+        private Random _rand;
+
+        public NumericSampleData()
         {
-            if (rand.Next() % 2 == 0)
+            _rand = new();
+        }
+        public bool SampleBool()
+        {
+            if (_rand.Next() % 2 == 0)
             {
                 return true;
             }
@@ -20,34 +25,34 @@ namespace SampleDataLibrary
                 return false;
             }
         }
-        public int sampleInt(int minRange, int maxRange)
+        public int SampleInt(int minRange, int maxRange)
         {
-            return rand.Next(minRange, maxRange);
+            return _rand.Next(minRange, maxRange);
         }
-        public double sampleDouble(double minRange, double maxRange)
+        public double SampleDouble(double minRange, double maxRange)
         {
-            return Math.Round((rand.NextDouble() * (maxRange - minRange) + minRange), 3);
+            return Math.Round((_rand.NextDouble() * (maxRange - minRange) + minRange), 3);
         }
-        public string samplePhoneNumber(string format)
+        public string SamplePhoneNumber(string format)
         {
-            StringBuilder sb = new StringBuilder();
+            StringBuilder sb = new();
 
             for (int i = 0; i < 10; i++)
             {
-                sb.Append(rand.Next(1, 9));
+                sb.Append(_rand.Next(1, 9));
             }
 
             return String.Format(format, double.Parse(sb.ToString()));
 
         }
 
-        public string sampleZipCode(string format)
+        public string SampleZipCode(string format)
         {
-            StringBuilder sb = new StringBuilder();
+            StringBuilder sb = new();
 
             for (int i = 0; i < 9; i++)
             {
-                sb.Append(rand.Next(1, 9));
+                sb.Append(_rand.Next(1, 9));
             }
 
             return String.Format(format, double.Parse(sb.ToString()));
