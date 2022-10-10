@@ -22,5 +22,10 @@ namespace SampleDataLibrary
             int sample = _rand.Next(0, lastNames.Count);
             return lastNames[sample];
         }
+
+        public string SampleFullName()
+        {
+            return $"{SampleFirstName()} {SampleLastName()}";
+        }
     }
 }
